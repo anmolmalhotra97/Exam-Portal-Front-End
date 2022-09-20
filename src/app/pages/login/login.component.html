@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row margin-top20">
+            <!-- 
+                There are Total of 12 Grids
+                This says as soon as mid is reached occupy left 6, leaving 6 grids at right side empty
+                offset-md-3, offsets the start of the grid by 3 grids from the left
+            --->
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card>
+                    <div class="container text-center">
+                        <img src="../../../assets/signup-icon.jpg" alt="">
+                    </div>
+                    <h1 class="text-center">Login Here</h1>
+
+                    <form action="">
+                        <!-- Username field -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <!-- 
+                            Use [] to bind from source to view
+                            Use () to bind from view to source
+                            Use [()] to bind in a two way sequence of view->source->view
+                        -->
+                            <input required matInput placeholder="Enter Here">
+                            <mat-hint>Enter Valid Username!!</mat-hint>
+                        </mat-form-field>
+
+                        <!-- Password field -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>User Password</mat-label>
+                            <input required type="password" matInput placeholder="Enter Here">
+                        </mat-form-field>
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary">Login</button>
+                            <button class="margin-left20" mat-raised-button color="accent">Clear</button>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
