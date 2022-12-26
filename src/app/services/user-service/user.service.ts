@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import baseUrl from './helper';
+import baseUrl from '/home/anmolmalhotra97/Desktop/Github/Exam Portal/Exam Portal Angular Frontend/src/app/services/helper';
 
 @Injectable({
   providedIn: 'root'
