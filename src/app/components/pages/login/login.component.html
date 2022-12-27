@@ -13,8 +13,7 @@
                         <img src="../../../assets/signup-icon.jpg" alt="">
                     </div>
                     <h1 class="text-center">Login Here</h1>
-
-                    <form action="">
+                    <form (ngSubmit)="loginFormSubmit()">
                         <!-- Username field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Username</mat-label>
@@ -23,14 +22,16 @@
                             Use () to bind from view to source
                             Use [()] to bind in a two way sequence of view->source->view
                         -->
-                            <input required matInput placeholder="Enter Here">
+                            <input [(ngModel)]="loginData.username" name="username" required matInput
+                                placeholder="Enter Here">
                             <mat-hint>Enter Valid Username!!</mat-hint>
                         </mat-form-field>
 
                         <!-- Password field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>User Password</mat-label>
-                            <input required type="password" matInput placeholder="Enter Here">
+                            <input [(ngModel)]="loginData.password" name="password" required type="password" matInput
+                                placeholder="Enter Here">
                         </mat-form-field>
 
                         <div class="container text-center">
