@@ -44,12 +44,19 @@ export class LoginComponent implements OnInit {
     }
 
     /*
-    * Send Request to Backend Server to Login
+    * Send Request to Backend Server to Login, Save the Token and User Details in Local Storage
     */
     this.loginService.generateToken(this.loginData).subscribe(
       (data: any) => {
-        console.log('success');
-        console.log(data);
+        console.log("Generating Token: " + data.authenticationToken);
+        //Login User
+        this.loginService.loginUser(data.token);
+        this.loginService.getCurrentUser().subscribe(
+          (userData: any) => {
+            this.loginService.setUser(userData);
+            //Redirect -> ADMIN Dashboard: If User is ADMIN
+            //Redirect -> USER User Dashboard: If User is USER
+          });
       }, (error) => {
         console.log("Error!!");
         console.log(error);
