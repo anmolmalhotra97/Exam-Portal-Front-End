@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import baseUrl from '../helper';
 
 @Injectable({
@@ -11,6 +12,8 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
+  //This pushes an event to all the subscribers -> here NavbarComponent
+  public loginStatusSubject = new Subject<boolean>();
 
   //Get Current Logged In user
   public getCurrentUser() {

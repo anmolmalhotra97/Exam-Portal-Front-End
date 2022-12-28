@@ -57,13 +57,20 @@ export class LoginComponent implements OnInit {
           (userData: any) => {
             this.loginService.setUser(userData);
             //Redirect -> ADMIN Dashboard: If User is ADMIN
-            if (this.loginService.getUserRole() == "ADMIN")
+            if (this.loginService.getUserRole() == "ADMIN") {
               this.router.navigate(['/admin']);
+              //This pushes an event to all the subscribers -> here NavbarComponent
+              this.loginService.loginStatusSubject.next(true);
+            }
             //Redirect -> USER User Dashboard: If User is USER
-            else if (this.loginService.getUserRole() == "NORMAL")
+            else if (this.loginService.getUserRole() == "NORMAL") {
               this.router.navigate(['/user-dashboard']);
-            else
+              //This pushes an event to all the subscribers -> here NavbarComponent
+              this.loginService.loginStatusSubject.next(true);
+            }
+            else {
               this.loginService.logoutUser();
+            }
           });
       }, (error) => {
         console.log("Error!!");
