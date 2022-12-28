@@ -1,17 +1,31 @@
 <mat-toolbar color="primary">
-    <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu-book icon">
+    <a routerLink="/" mat-icon-button class="example-icon">
         <mat-icon>menu_book</mat-icon>
     </a>
     <span>Exam Portal</span>
     <span class="example-spacer"></span>
-    <a routerLink="/login" mat-icon-button class="example-icon login-icon"
-        aria-label="Example icon-button with login icon">
-        <!-- <mat-icon>login</mat-icon> -->
+
+    <a *ngIf="!isUserLoggedIn" routerLink="/login" mat-icon-button class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
         Login
     </a>
-    <a routerLink="/signup" mat-icon-button class="example-icon margin-left20 margin-right20"
-        aria-label="Example icon-button with share icon">
-        <!-- <mat-icon>register</mat-icon> -->
+
+    <a *ngIf="!isUserLoggedIn" routerLink="/signup" mat-icon-button
+        class="example-icon favorite-icon margin-right20 margin-left20"
+        aria-label="Example icon-button with heart icon">
         Register
     </a>
+
+    <a (click)="logout()" *ngIf="isUserLoggedIn" mat-icon-button
+        class="example-icon favorite-icon margin-right20 margin-left20"
+        aria-label="Example icon-button with heart icon">
+        Logout
+    </a>
+
+    <button *ngIf="isUserLoggedIn && user" class="example-icon favorite-icon margin-left20" mat-button
+        routerLink="/admin/profile" aria-label="Example icon-button with heart icon">
+        {{ user.username}}
+    </button>
+
+
 </mat-toolbar>
