@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/pages/admin/admin-dashboard/admin-dashboard.component';
+import { WelcomeComponent } from './components/pages/admin/welcome/welcome.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { UserDashboardComponent } from './components/pages/normal-user/user-dashboard/user-dashboard.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { AdminGuard } from './services/guard/admin/admin.guard';
 import { NormalUserGuard } from './services/guard/normal-user/normal-user.guard';
@@ -27,14 +29,26 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard]
+    // canActivate: [AdminGuard],
+    // Child is used to load a component within a component
+    children: [
+      //Welcome Component is loaded within AdminDashboardComponent by "default"
+      {
+        path: '',
+        component: WelcomeComponent,
+      },
+      //Profile Component is loaded within AdminDashboardComponent
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      }
+    ]
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
     pathMatch: 'full',
-    canActivate: [NormalUserGuard]
+    // canActivate: [NormalUserGuard]
   }
 ];
 
