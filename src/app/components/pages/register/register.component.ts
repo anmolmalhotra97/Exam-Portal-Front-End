@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   public user = {
-    userName: '',
+    username: '',
     password: '',
     firstName: '',
     lastName: '',
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   formSubmit() {
     console.log(this.user);
-    if (this.user.userName == '' || this.user.userName == null) {
+    if (this.user.username == '' || this.user.username == null) {
       this.snackbar.open("Username is required!!", 'Okay', {
         duration: 3000,
         verticalPosition: 'top',
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       (data: any) => {
         //success
         console.log(data);
-        Swal.fire('Success', data.userName + ' is Successfully Registered !!', 'success');
+        Swal.fire('Success', data.username + ' is Successfully Registered !!', 'success');
       },
       (error) => {
         //error
