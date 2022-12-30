@@ -25,7 +25,8 @@
                 {{quiz.numberOfQuestions}}</button>
             <button class="margin-right10" mat-stroked-button color="primary">Attempts</button>
             <button class="margin-right10" mat-raised-button color="primary">Update</button>
-            <button class="margin-right10" mat-raised-button color="primary">Delete</button>
+            <button class="margin-right10" mat-raised-button color="warn"
+                (click)="deleteQuiz(quiz.quizId)">Delete</button>
         </mat-card-actions>
     </mat-card>
 
