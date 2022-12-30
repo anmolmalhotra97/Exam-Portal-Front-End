@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './components/pages/admin/add-category/add-category.component';
-import { AddQuizComponent } from './components/pages/admin/add-quizzes/add-quiz/add-quiz.component';
+import { AddQuizComponent } from './components/pages/admin/add-quiz/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './components/pages/admin/admin-dashboard/admin-dashboard.component';
 import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show-quizzes/show-quizzes.component';
 import { ViewCategoriesComponent } from './components/pages/admin/view-categories/view-categories.component';

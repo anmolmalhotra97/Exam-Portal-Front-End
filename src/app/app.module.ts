@@ -27,8 +27,10 @@ import { SidebarComponent } from './components/pages/admin/sidebar/sidebar.compo
 import { WelcomeComponent } from './components/pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './components/pages/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './components/pages/admin/add-category/add-category.component';
-import { AddQuizComponent } from './components/pages/admin/add-quizzes/add-quiz/add-quiz.component';
 import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show-quizzes/show-quizzes.component';
+import { AddQuizComponent } from './components/pages/admin/add-quiz/add-quiz/add-quiz.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,8 @@ import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoryComponent,
-    AddQuizComponent,
-    ShowQuizzesComponent
+    ShowQuizzesComponent,
+    AddQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,9 @@ import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [authenticationInterceptorProviders],
   bootstrap: [AppComponent]
