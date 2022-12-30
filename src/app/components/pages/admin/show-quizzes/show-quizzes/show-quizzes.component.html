@@ -19,12 +19,14 @@
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button class="margin-right10" mat-raised-button color="primary">Questions</button>
+            <button class="margin-right10" mat-raised-button color="primary"
+                (click)="viewQuestions(quiz.quizId)">Questions</button>
             <button class="margin-right10" mat-stroked-button color="primary">Max Marks: {{quiz.maxMarks}}</button>
             <button class="margin-right10" mat-stroked-button color="primary">Number of Questions:
                 {{quiz.numberOfQuestions}}</button>
             <button class="margin-right10" mat-stroked-button color="primary">Attempts</button>
-            <button class="margin-right10" mat-raised-button color="primary">Update</button>
+            <button class="margin-right10" mat-raised-button color="primary"
+                (click)="updateQuiz(quiz.quizId)">Update</button>
             <button class="margin-right10" mat-raised-button color="warn"
                 (click)="deleteQuiz(quiz.quizId)">Delete</button>
         </mat-card-actions>

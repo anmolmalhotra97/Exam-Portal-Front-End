@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz-service/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -14,9 +15,9 @@ export class ShowQuizzesComponent implements OnInit {
       quizId: '',
       title: '',
       description: '',
-      numberOfQuestions: 0,
-      maxMarks: 0,
-      active: false,
+      numberOfQuestions: '',
+      maxMarks: '',
+      active: '',
       category: {
         title: '',
       }
@@ -24,7 +25,8 @@ export class ShowQuizzesComponent implements OnInit {
   ]
 
   constructor(
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -72,4 +74,13 @@ export class ShowQuizzesComponent implements OnInit {
       }
     });
   }
+
+  public updateQuiz(quizId: any) {
+    this.router.navigate([`/admin/update-quiz/${quizId}`]);
+  }
+
+  public viewQuiz(quizId: any) {
+    this.router.navigate([`/admin/view-quiz/${quizId}`]);
+  }
+
 }
