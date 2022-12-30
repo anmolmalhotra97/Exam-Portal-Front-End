@@ -4,7 +4,10 @@ import { AddCategoryComponent } from './components/pages/admin/add-category/add-
 import { AddQuizComponent } from './components/pages/admin/add-quiz/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './components/pages/admin/admin-dashboard/admin-dashboard.component';
 import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show-quizzes/show-quizzes.component';
+import { UpdateCategoryComponent } from './components/pages/admin/update-category/update-category/update-category.component';
+import { UpdateQuizComponent } from './components/pages/admin/update-quiz/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './components/pages/admin/view-categories/view-categories.component';
+import { ViewQuestionsComponent } from './components/pages/admin/view-queststions/view-questions/view-questions.component';
 import { WelcomeComponent } from './components/pages/admin/welcome/welcome.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
@@ -56,6 +59,11 @@ const routes: Routes = [
         path: 'add-category',
         component: AddCategoryComponent,
       },
+      //Update Category Component is loaded within AdminDashboardComponent
+      {
+        path: 'update-category/:categoryId',
+        component: UpdateCategoryComponent,
+      },
       //View Quizzes Component is loaded within AdminDashboardComponent
       {
         path: 'view-quizzes',
@@ -65,6 +73,16 @@ const routes: Routes = [
       {
         path: 'add-quiz',
         component: AddQuizComponent,
+      },
+      //Update Quiz Component is loaded within AdminDashboardComponent
+      {
+        path: 'update-quiz/:quizId',
+        component: UpdateQuizComponent,
+      },
+      //View Question Component is loaded within AdminDashboardComponent
+      {
+        path: 'view-questions',
+        component: ViewQuestionsComponent,
       },
     ]
   },
