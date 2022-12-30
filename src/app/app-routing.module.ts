@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './components/pages/admin/add-category/add-category.component';
+import { AddQuizComponent } from './components/pages/admin/add-quizzes/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './components/pages/admin/admin-dashboard/admin-dashboard.component';
+import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show-quizzes/show-quizzes.component';
 import { ViewCategoriesComponent } from './components/pages/admin/view-categories/view-categories.component';
 import { WelcomeComponent } from './components/pages/admin/welcome/welcome.component';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -53,7 +55,17 @@ const routes: Routes = [
       {
         path: 'add-category',
         component: AddCategoryComponent,
-      }
+      },
+      //View Quizzes Component is loaded within AdminDashboardComponent
+      {
+        path: 'view-quizzes',
+        component: ShowQuizzesComponent,
+      },
+      //Add Quiz Component is loaded within AdminDashboardComponent
+      {
+        path: 'add-quiz',
+        component: AddQuizComponent,
+      },
     ]
   },
   {

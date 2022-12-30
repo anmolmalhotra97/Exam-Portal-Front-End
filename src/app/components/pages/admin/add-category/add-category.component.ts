@@ -26,12 +26,15 @@ export class AddCategoryComponent implements OnInit {
   }
 
   addCategory() {
+    // Validates if Title is not empty
     if (this.category.title.trim() === '') {
       this.matSnackBar.open('Title is mandatory !!', 'I will fix it', {
         duration: 3000
       });
       return;
     }
+
+    // Validates if Description is not empty
     if (this.category.description.trim() === '') {
       this.matSnackBar.open('Description is mandatory !!', 'I will Fix it', {
         duration: 3000
@@ -39,6 +42,7 @@ export class AddCategoryComponent implements OnInit {
       return;
     }
 
+    // Call the service to add the new category
     this.categoryService.addCategory(this.category).subscribe(
       (category: any) => {
         console.log(category);
