@@ -12,9 +12,15 @@
                 <button mat-raised-button color="warn">Delete</button>
             </div> -->
             <mat-divider></mat-divider>
+            <mat-card-actions>
+                <!-- <button class="margin-right10" mat-raised-button color="primary">Quizzes</button> -->
+                <button class="margin-right10" mat-raised-button color="primary"
+                    (click)="updateCategory(category.categoryId)">Update</button>
+                <button class="margin-right10" mat-raised-button color="warn"
+                    (click)="deleteCategory(category.categoryId)">Delete</button>
+            </mat-card-actions>
         </mat-list-item>
     </mat-list>
-
     <div class="container text-center mt20">
         <button mat-raised-button color="primary" routerLink="/admin/add-category">Add Category</button>
     </div>
