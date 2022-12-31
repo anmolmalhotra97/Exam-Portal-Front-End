@@ -20,7 +20,7 @@
         </mat-card-content>
         <mat-card-actions>
             <button class="margin-right10" mat-raised-button color="primary"
-                (click)="viewQuestions(quiz.quizId)">Questions</button>
+                (click)="viewQuizQuestions(quiz.quizId, quiz.title)">Questions</button>
             <button class="margin-right10" mat-stroked-button color="primary">Max Marks: {{quiz.maxMarks}}</button>
             <button class="margin-right10" mat-stroked-button color="primary">Number of Questions:
                 {{quiz.numberOfQuestions}}</button>

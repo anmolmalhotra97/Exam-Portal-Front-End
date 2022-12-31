@@ -34,6 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { UpdateQuizComponent } from './components/pages/admin/update-quiz/update-quiz/update-quiz.component';
 import { UpdateCategoryComponent } from './components/pages/admin/update-category/update-category/update-category.component';
 import { ViewQuestionsComponent } from './components/pages/admin/view-queststions/view-questions/view-questions.component';
+import { AddQuestionComponent } from './components/pages/admin/add-question/add-question/add-question.component';
+import { UpdateQuestionComponent } from './components/pages/admin/update-question/update-question/update-question.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { ViewQuestionsComponent } from './components/pages/admin/view-queststion
     AddQuizComponent,
     UpdateQuizComponent,
     UpdateCategoryComponent,
-    ViewQuestionsComponent
+    ViewQuestionsComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,

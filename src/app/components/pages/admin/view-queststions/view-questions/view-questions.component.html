@@ -1,0 +1,57 @@
+<h1 class="margin-top20">Questions For Quiz: {{quizTitle}}</h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card *ngFor="let question of questions; let i = index" class="margin-top20">
+                <mat-card-content>
+                    <p>
+                        <strong>Question {{i + 1}}: </strong> <span class="margin-right10"
+                            [innerHTML]="question.content">{{question.content}}</span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>1: </strong> <span class="margin-right10"
+                                        [innerHTML]="question.option1">{{question.option1}}</span>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>2: </strong> <span class="margin-right10"
+                                        [innerHTML]="question.option2">{{question.option2}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>3: </strong> <span class="margin-right10"
+                                        [innerHTML]="question.option3">{{question.option3}}</span>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>4: </strong> <span class="margin-right10"
+                                        [innerHTML]="question.option4">{{question.option4}}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <mat-divider></mat-divider>
+
+                        <div class="row">
+                            <div class="col-md-6 margin-top10">
+                                <p>
+                                    <strong>Correct Answer: </strong><span class="margin-right10"
+                                        [innerHTML]="question.answer">{{question.answer}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

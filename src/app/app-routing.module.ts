@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './components/pages/admin/add-category/add-category.component';
+import { AddQuestionComponent } from './components/pages/admin/add-question/add-question/add-question.component';
 import { AddQuizComponent } from './components/pages/admin/add-quiz/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './components/pages/admin/admin-dashboard/admin-dashboard.component';
 import { ShowQuizzesComponent } from './components/pages/admin/show-quizzes/show-quizzes/show-quizzes.component';
 import { UpdateCategoryComponent } from './components/pages/admin/update-category/update-category/update-category.component';
+import { UpdateQuestionComponent } from './components/pages/admin/update-question/update-question/update-question.component';
 import { UpdateQuizComponent } from './components/pages/admin/update-quiz/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './components/pages/admin/view-categories/view-categories.component';
 import { ViewQuestionsComponent } from './components/pages/admin/view-queststions/view-questions/view-questions.component';
@@ -81,9 +83,19 @@ const routes: Routes = [
       },
       //View Question Component is loaded within AdminDashboardComponent
       {
-        path: 'view-questions',
+        path: 'view-questions/:quizId/:quizTitle',
         component: ViewQuestionsComponent,
       },
+      //Add Question Component is loaded within AdminDashboardComponent
+      {
+        path: 'add-question/:quizId',
+        component: AddQuestionComponent,
+      },
+      //Update Question Component is loaded within AdminDashboardComponent
+      {
+        path: 'update-question/:questionId',
+        component: UpdateQuestionComponent,
+      }
     ]
   },
   {

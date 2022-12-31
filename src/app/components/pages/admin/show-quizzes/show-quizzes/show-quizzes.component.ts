@@ -79,8 +79,8 @@ export class ShowQuizzesComponent implements OnInit {
     this.router.navigate([`/admin/update-quiz/${quizId}`]);
   }
 
-  public viewQuiz(quizId: any) {
-    this.router.navigate([`/admin/view-quiz/${quizId}`]);
+  public viewQuizQuestions(quizId: any, quizTitle: any) {
+    this.router.navigate([`/admin/view-questions/${quizId}/${quizTitle}`]);
   }
 
 }
