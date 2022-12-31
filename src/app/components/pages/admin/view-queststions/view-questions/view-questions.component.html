@@ -1,8 +1,13 @@
-<h1 class="margin-top20">Questions For Quiz: {{quizTitle}}</h1>
+<h1 class="margin-top20 text-center">Questions For Quiz: <strong>{{quizTitle}}</strong></h1>
 
 <div class="bootstrap-wrapper">
     <div class="row">
         <div class="col-md-12">
+            <div class="container text-center">
+                <button mat-raised-button color="primary"
+                    [routerLink]="'/admin/add-question/' + quizId + '/' + quizTitle">Add
+                    Question</button>
+            </div>
             <mat-card *ngFor="let question of questions; let i = index" class="margin-top20">
                 <mat-card-content>
                     <p>
@@ -49,6 +54,14 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-12">
+                        <mat-card-footer class="margin-bottom10">
+                            <button class="margin-right10" mat-raised-button color="primary"
+                                (click)="updateQuestion(question.quesId, quizId, quizTitle)">Update</button>
+                            <button class="margin-right10" mat-raised-button color="warn"
+                                (click)="deleteQuestion(question.quesId)">Delete</button>
+                        </mat-card-footer>
                     </div>
                 </mat-card-content>
             </mat-card>

@@ -88,12 +88,12 @@ const routes: Routes = [
       },
       //Add Question Component is loaded within AdminDashboardComponent
       {
-        path: 'add-question/:quizId',
+        path: 'add-question/:quizId/:quizTitle',
         component: AddQuestionComponent,
       },
       //Update Question Component is loaded within AdminDashboardComponent
       {
-        path: 'update-question/:questionId',
+        path: 'update-question/:quesId/:quizId/:quizTitle',
         component: UpdateQuestionComponent,
       }
     ]

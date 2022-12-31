@@ -56,8 +56,8 @@ export class ViewQuestionsComponent implements OnInit {
   }
 
   // Update question
-  public updateQuestion(questionId: any) {
-    this.router.navigate(['/admin/update-question', questionId]);
+  public updateQuestion(questionId: any, quizId: any, quizTitle: any) {
+    this.router.navigate(['/admin/update-question', questionId, quizId, quizTitle]);
   }
 
   // Delete question

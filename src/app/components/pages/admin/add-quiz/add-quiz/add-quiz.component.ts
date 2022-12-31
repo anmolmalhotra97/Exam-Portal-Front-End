@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 import { QuizService } from 'src/app/services/quiz-service/quiz.service';
 import Swal from 'sweetalert2';
@@ -28,7 +29,8 @@ export class AddQuizComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private categoryService: CategoryService,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -53,22 +55,30 @@ export class AddQuizComponent implements OnInit {
 
     this.quizService.addQuiz(this.quiz).subscribe(
       (quiz: any) => {
-        // console.log(quiz);
-        this.quiz = {
-          title: '',
-          description: '',
-          numberOfQuestions: 0,
-          maxMarks: 0,
-          active: false,
-          category: {
-            categoryId: ''
+        Swal.fire({
+          title: 'Quiz Added Successfully',
+          text: 'Do you want to add another quiz?',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.quiz.title = '';
+            this.quiz.description = '';
+            this.quiz.numberOfQuestions = 0;
+            this.quiz.maxMarks = 0;
+            this.quiz.active = false;
+            this.quiz.category.categoryId = '';
+          } else if (result.isDismissed) {
+            this.router.navigate(['/admin/view-quizzes']);
           }
-        };
-        Swal.fire('Success', 'Quiz Added Successfully', 'success');
+        });
       },
       (error: any) => {
         // console.log(error);
         Swal.fire('Error', 'Error while Adding quizzes', 'error');
+        return;
       }
     );
   }
