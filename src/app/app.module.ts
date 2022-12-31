@@ -36,6 +36,7 @@ import { UpdateCategoryComponent } from './components/pages/admin/update-categor
 import { ViewQuestionsComponent } from './components/pages/admin/view-queststions/view-questions/view-questions.component';
 import { AddQuestionComponent } from './components/pages/admin/add-question/add-question/add-question.component';
 import { UpdateQuestionComponent } from './components/pages/admin/update-question/update-question/update-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { UpdateQuestionComponent } from './components/pages/admin/update-questio
     UpdateCategoryComponent,
     ViewQuestionsComponent,
     AddQuestionComponent,
-    UpdateQuestionComponent
+    UpdateQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,8 @@ import { UpdateQuestionComponent } from './components/pages/admin/update-questio
     MatIconModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    CKEditorModule
   ],
   providers: [authenticationInterceptorProviders],
   bootstrap: [AppComponent]

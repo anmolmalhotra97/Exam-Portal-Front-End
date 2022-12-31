@@ -1,7 +1,7 @@
 <div class="bootstrap-wrapper">
     <div class="row margin-top20">
         <div class="col-md-12">
-            <h1 class="margin-top20">Add Question For Quiz: <strong>{{quizTitle}}</strong></h1>
+            <h1 class="margin-top20 text-center">Add Question For Quiz: <strong>{{quizTitle}}</strong></h1>
             <mat-card>
                 <mat-card-header>
                     <mat-card-subtitle>
@@ -10,15 +10,17 @@
                 </mat-card-header>
                 <mat-card-content>
                     <form (ngSubmit)="addQuestion()">
-                        <mat-form-field class="w100" appearance="outline">
+                        <!-- <mat-form-field class="w100" appearance="outline">
                             <mat-label>
                                 Question
                             </mat-label>
                             <textarea required type="text" matInput placeholder="Enter Question"
                                 [(ngModel)]="question.content" name="content" rows="12">
                             </textarea>
-                        </mat-form-field>
-                        <div class="row">
+                        </mat-form-field> -->
+                        <ckeditor [editor]="Editor" name="content" [(ngModel)]="question.content">
+                        </ckeditor>
+                        <div class="row margin-top20">
                             <div class="col-md-6">
                                 <mat-form-field class="w100" appearance="outline">
                                     <mat-label>
