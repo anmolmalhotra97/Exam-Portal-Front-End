@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-action-list>
+        <button mat-list-item routerLink="/user-dashboard/0">
+            <mat-icon mat-list-icon>quiz</mat-icon>
+            All Quizzes
+        </button>
+
+        <div mat-subheader>Categories</div>
+        <button mat-list-item *ngFor="let category of categories" routerLink="/user-dashboard/{{category.categoryId}}">
+            <mat-icon mat-list-icon>category</mat-icon>
+            {{category.title}}
+        </button>
+
+        <button mat-list-item routerLink="/admin/logout">
+            <mat-icon mat-list-icon>logout</mat-icon>
+            Logout
+        </button>
+    </mat-action-list>
+</mat-card>

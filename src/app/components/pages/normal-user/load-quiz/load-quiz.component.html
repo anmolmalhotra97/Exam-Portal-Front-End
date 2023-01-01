@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+    <div class="row margin-top20">
+        <div class="col-md-12">
+            <h1 class="margin-top20 text-center"><strong>All Quizzes</strong></h1>
+            <div class="row margin-top20" *ngIf="quizzes">
+                <div class="col-md-4 margin-top20" *ngFor="let quiz of quizzes">
+                    <mat-card>
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>
+                                {{quiz.title}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                {{quiz.category.title}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p class="truncate">{{quiz.description}}</p>
+                            <mat-card-actions>
+                                <button mat-raised-button color="primary"
+                                    [routerLink]="['/normal-user/load-quiz', quiz._id]">
+                                    <!-- <mat-icon>play_arrow</mat-icon> -->
+                                    <span>Start</span>
+                                </button>
+                                <button mat-raised-button color="primary"
+                                    [routerLink]="['/normal-user/quiz-details', quiz._id]">
+                                    <!-- <mat-icon>info</mat-icon> -->
+                                    <span>View</span>
+                                </button>
+                                <button mat-stroked-button color="primary">
+                                    <!-- <mat-icon>info</mat-icon> -->
+                                    <span>Q: {{quiz.numberOfQuestions}}</span>
+                                </button>
+                                <button mat-stroked-button color="primary">
+                                    <!-- <mat-icon>info</mat-icon> -->
+                                    <span>M.M: {{quiz.maxMarks}}</span>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="quizzes.length==0">
+                <mat-card>
+                    <mat-card-content>
+                        <h1 class="text-center">No Quizzes Yet in this category</h1>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

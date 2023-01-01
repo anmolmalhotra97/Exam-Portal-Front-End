@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
             }
             //Redirect -> USER User Dashboard: If User is USER
             else if (this.loginService.getUserRole() == "NORMAL") {
-              this.router.navigate(['/user-dashboard']);
+              this.router.navigate(['/user-dashboard/0']);
               //This pushes an event to all the subscribers -> here NavbarComponent
               this.loginService.loginStatusSubject.next(true);
             }
