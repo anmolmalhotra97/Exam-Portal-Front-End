@@ -35,7 +35,7 @@ export class LoadQuizComponent implements OnInit {
         this.categoryId = paramMap.get('categoryId');
 
         if (this.categoryId == 0) {
-          this.quizzes = this.quizSerice.getAllQuizzes().subscribe(
+          this.quizzes = this.quizSerice.getAllActiveQuizzes().subscribe(
             (quizzes: any) => {
               this.quizzes = quizzes;
             },
@@ -44,7 +44,7 @@ export class LoadQuizComponent implements OnInit {
               Swal.fire('Error', 'Error while fetching quizzes', 'error');
             });
         } else {
-          this.quizzes = this.quizSerice.getAllQuizzesByCategory(this.categoryId).subscribe(
+          this.quizzes = this.quizSerice.getAllActiveQuizzesByCategory(this.categoryId).subscribe(
             (quizzes: any) => {
               console.log("Quizzes received from Backend" + quizzes);
               this.quizzes = quizzes;

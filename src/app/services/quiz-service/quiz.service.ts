@@ -40,4 +40,16 @@ export class QuizService {
   public getAllQuizzesByCategory(categoryId: any) {
     return this.httpClient.get(`${baseUrl}/quiz/category/${categoryId}`);
   }
+
+  // get all active quizzes
+  // Used for normal user
+  getAllActiveQuizzes() {
+    return this.httpClient.get(`${baseUrl}/quiz/active`);
+  }
+
+  // get all active quizzes by category
+  // Used for normal user
+  getAllActiveQuizzesByCategory(categoryId: any) {
+    return this.httpClient.get(`${baseUrl}/quiz/active/category/${categoryId}`);
+  }
 }
