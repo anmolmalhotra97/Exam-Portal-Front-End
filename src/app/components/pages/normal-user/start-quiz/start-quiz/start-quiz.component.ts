@@ -23,6 +23,9 @@ export class StartQuizComponent implements OnInit {
 
   isSubmitted = false;
 
+  timer: any;
+  formattedTime: string = '';
+
   constructor(
     private locationStrategy: LocationStrategy,
     private activatedRoute: ActivatedRoute,
@@ -47,6 +50,9 @@ export class StartQuizComponent implements OnInit {
         this.quizTitle = this.questions[0].quiz.title;
 
         console.log(this.questions);
+
+        this.timer = this.questions.length * 2 * 60;
+        this.startTimer();
       },
       (error: any) => {
         Swal.fire('Error', 'Error while fetching Questions', 'error');
@@ -61,7 +67,7 @@ export class StartQuizComponent implements OnInit {
     });
   }
 
-  submitQuiz(arg0: any) {
+  submitQuiz() {
     Swal.fire({
       title: 'Are you sure?',
       text: "You want to submit the Quiz?",
@@ -73,30 +79,54 @@ export class StartQuizComponent implements OnInit {
       cancelButtonText: 'No, I will re-check it',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.questions.forEach((question: any) => {
-          if (question.givenAnswer.trim() != '') {
-            this.attempted++;
-          }
-          if (question.givenAnswer == question.answer) {
-            this.correctAnswers++;
-            this.marksGot += (this.questions[0].quiz.maxMarks / this.questions[0].quiz.numberOfQuestions);
-          }
-          if (question.givenAnswer != question.answer) {
-            this.wrongAnswers++;
-          }
-        });
+        this.calculateMarks();
+      }
+    });
+  }
 
-        console.log("marksGot: " + this.marksGot + ", correctAnswers: " + this.correctAnswers + ", wrongAnswers: " + this.wrongAnswers + ", attempted: " + this.attempted);
-        Swal.fire({
-          title: 'Quiz Submitted',
-          text: 'You have successfully submitted the Quiz',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.isSubmitted = true;
-          }
-        });
+  startTimer() {
+    let t = window.setInterval(() => {
+      if (this.timer > 0) {
+        this.timer--;
+        this.formattedTime = this.getFormattedTime();
+      } else {
+        this.calculateMarks();
+        clearInterval(t);
+      }
+    }, 1000);
+  }
+
+  getFormattedTime() {
+    let minutes = Math.floor(this.timer / 60);
+    let seconds = this.timer % 60;
+
+    return minutes + " min : " + seconds + " sec";
+  }
+
+  calculateMarks() {
+    this.questions.forEach((question: any) => {
+      if (question.givenAnswer.trim() != '') {
+        this.attempted++;
+      }
+      if (question.givenAnswer == question.answer) {
+        this.correctAnswers++;
+        this.marksGot += (this.questions[0].quiz.maxMarks / this.questions[0].quiz.numberOfQuestions);
+      }
+      if (question.givenAnswer != question.answer) {
+        this.wrongAnswers++;
+      }
+    });
+
+    console.log("marksGot: " + this.marksGot + ", correctAnswers: " + this.correctAnswers + ", wrongAnswers: " + this.wrongAnswers + ", attempted: " + this.attempted);
+
+    Swal.fire({
+      title: 'Quiz Submitted',
+      text: 'Quiz Submitted Successfully',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.isSubmitted = true;
       }
     });
   }

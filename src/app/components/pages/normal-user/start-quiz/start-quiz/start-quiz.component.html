@@ -9,11 +9,7 @@
                 <!-- questions -->
                 <ng-container *ngIf="questions">
                     <mat-card>
-                        <mat-card-header>
-                            <mat-card-title>
-                                <h1>On Going Quiz: <strong>{{quizTitle}}</strong></h1>
-                            </mat-card-title>
-                        </mat-card-header>
+                        <h1 class="text-center">On Going Quiz: <strong>{{quizTitle}}</strong></h1>
                     </mat-card>
                 </ng-container>
                 <mat-card *ngFor="let ques of questions; let i = index" class="margin-top20">
@@ -48,12 +44,20 @@
                     </mat-card-content>
                 </mat-card>
                 <div class="container text-center margin-top20 margin-bottom20">
-                    <button mat-raised-button color="primary" (click)="submitQuiz(quizId)">Submit Quiz</button>
+                    <button mat-raised-button color="primary" (click)="submitQuiz()">Submit Quiz</button>
                 </div>
             </div>
             <div class="col-md-2">
                 <!-- timer/progress -->
-                <h1>Progress</h1>
+                <mat-card class="example-card">
+                    <h1 class="text-center">Timer</h1>
+                    <mat-card-content class="margin-top20 text-center">
+                        <mat-progress-spinner style=" margin: auto" color="primary" [mode]="'determinate'"
+                            [value]="(timer/(questions.length*2*60))*100">
+                        </mat-progress-spinner>
+                        <h1 class="margin-top20">{{formattedTime}}</h1>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
