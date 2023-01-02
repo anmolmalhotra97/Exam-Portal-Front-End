@@ -16,6 +16,11 @@ export class QuestionService {
     return this.httpClient.get(`${baseUrl}/question/quiz/admin/${quizId}`);
   }
 
+  // get all questions for a quiz for **NORMAL USER** (only numberOfQuestions specified by ADMIN)
+  public getAllQuestionsForQuizForUser(quizId: any) {
+    return this.httpClient.get(`${baseUrl}/question/quiz/${quizId}`);
+  }
+
   // get question by id
   public getQuestionById(questionId: any) {
     return this.httpClient.get(`${baseUrl}/question/${questionId}`);
