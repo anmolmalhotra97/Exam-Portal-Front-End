@@ -1,0 +1,60 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h1><strong>Quiz Instructions</strong></h1>
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            <h3><strong>Please Read the instructions of the quiz very carefully!!</strong></h3>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="margin-left20 margin-top20">
+                        <h2><strong>Quiz Title:</strong> {{quiz.title}}</h2>
+                        <h3><strong>Quiz Description</strong>: {{quiz.description}}</h3>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Important Instructions:</h1>
+                        <ul>
+                            <li>This quiz is ONLY for practice purpose.</li>
+                            <li>Each question has 4 options</li>
+                            <li>Each question has only one correct answer.</li>
+                            <li>There is no negative marking.</li>
+                            <li>There are <strong>{{quiz.numberOfQuestions}}</strong> questions in this quiz.</li>
+                            <li>You have <strong>{{quiz.numberOfQuestions * 2}} minutes</strong> for this quiz.</li>
+                            <li>After {{quiz.numberOfQuestions * 2}} minutes, the quiz will be automatically submitted.
+                            </li>
+                            <li>Each question carries <strong>{{quiz.maxMarks / quiz.numberOfQuestions}}
+                                    marks</strong></li>
+                            <li>The quiz is of a total of <strong>{{quiz.maxMarks}}</strong> marks.</li>
+                            <li>After submitting the quiz, you will be able to see your score.</li>
+                            <li>You can attempt the quiz any number of times.</li>
+                        </ul>
+                        <br>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Instructions for attempting the QUIZ:</h1>
+                        <ul>
+                            <li>Click <strong>Start Quiz</strong>button to start the quiz.</li>
+                            <li>You <strong>CANNOT</strong> resume the quiz, if interrupted due to any reason.</li>
+                            <li>Scroll down to move to the next question.</li>
+                            <li>Click <strong>Submit Quiz</strong> button to submit the quiz.</li>
+                            <li>Once you submitted, report of the Quiz is automatically generated in PDF format.</li>
+                        </ul>
+                    </mat-card-content>
+                    <br>
+                    <mat-divider></mat-divider>
+                    <br>
+                    <mat-card-actions class="text-center margin-top20">
+                        <button mat-raised-button color="primary" (click)="startQuiz()">
+                            <mat-icon>play_arrow</mat-icon>
+                            <span>Start Quiz</span>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

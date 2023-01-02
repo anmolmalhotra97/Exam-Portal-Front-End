@@ -14,6 +14,7 @@ import { WelcomeComponent } from './components/pages/admin/welcome/welcome.compo
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { LoadQuizComponent } from './components/pages/normal-user/load-quiz/load-quiz.component';
+import { QuizInstructionsComponent } from './components/pages/normal-user/quiz-instructions/quiz-instructions/quiz-instructions.component';
 import { UserDashboardComponent } from './components/pages/normal-user/user-dashboard/user-dashboard.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
@@ -108,7 +109,12 @@ const routes: Routes = [
       {
         path: ':categoryId',
         component: LoadQuizComponent
-      }
+      },
+      //Quiz Instructions Component is loaded within UserDashboardComponent
+      {
+        path: 'quiz-instructions/:quizId',
+        component: QuizInstructionsComponent
+      },
     ]
   }
 ];
