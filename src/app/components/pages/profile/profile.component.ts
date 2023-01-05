@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    // console.log("Profile component initialized");
     //This is used to get data from the local storage
     this.user = this.loginService.getUser();
 

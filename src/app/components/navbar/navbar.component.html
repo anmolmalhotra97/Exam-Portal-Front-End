@@ -23,7 +23,7 @@
     </a>
 
     <button *ngIf="isUserLoggedIn && user" class="example-icon favorite-icon margin-left20" mat-button
-        routerLink="/admin/profile" aria-label="Example icon-button with heart icon">
+        (click)="routeToProfilePage()" aria-label="Example icon-button with heart icon">
         {{ user.username}}
     </button>
 

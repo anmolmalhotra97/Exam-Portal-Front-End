@@ -2,13 +2,26 @@
     <div class="container-fluid">
         <div class="row margin-top20">
             <div class="col-md-2">
-                <!-- instructions -->
-                <h1>Instructions</h1>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h1 class="text-center">Quiz Instructions</h1>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <ul>
+                            <li>Do NOT refresh the page, otherwise you will get new questions and all previous progress
+                                will be lost.</li>
+                            <li>Do NOT switch tabs.</li>
+                            <li>Do NOT minimize the window.</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-md-8">
                 <!-- questions -->
                 <ng-container *ngIf="questions">
-                    <mat-card>
+                    <mat-card class="text-center">
                         <h1 class="text-center">On Going Quiz: <strong>{{quizTitle}}</strong></h1>
                     </mat-card>
                 </ng-container>
@@ -72,10 +85,10 @@
                 </span>
                 <mat-divider></mat-divider>
                 <mat-card-content class="text-center margin-top20">
-                    <h1>Marks Got: {{marksGot}}</h1>
-                    <h1>Correct Answers: {{correctAnswers}}</h1>
-                    <h1>Wrong Answers: {{wrongAnswers}}</h1>
-                    <h1>Attempted Question: {{attempted}}</h1>
+                    <h1>Marks Got: <strong>{{marksGot}}</strong></h1>
+                    <h1>Correct Answers: <strong>{{correctAnswers}}</strong></h1>
+                    <h1>Wrong Answers: <strong>{{wrongAnswers}}</strong></h1>
+                    <h1>Attempted Question: <strong>{{attempted}}</strong></h1>
                 </mat-card-content>
                 <mat-divider></mat-divider>
                 <mat-card-actions class="text-center">

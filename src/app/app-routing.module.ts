@@ -116,7 +116,11 @@ const routes: Routes = [
         path: 'quiz-instructions/:quizId',
         component: QuizInstructionsComponent
       },
-
+      //Profile Component is loaded within AdminDashboardComponent
+      {
+        path: 'student/profile',
+        component: ProfileComponent,
+      }
     ]
   },
   //Start Start Quiz Component is loaded within main APP Router (outside of Admin and User Dashboard)

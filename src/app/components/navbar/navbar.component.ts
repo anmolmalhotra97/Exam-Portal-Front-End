@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login-service/login.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   user: any = null;
 
-  constructor(public loginService: LoginService) { }
+  constructor(
+    public loginService: LoginService,
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
     this.isUserLoggedIn = this.loginService.isUserLoggedIn();
@@ -27,5 +31,14 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.loginService.logoutUser();
     window.location.reload();
+  }
+
+  routeToProfilePage() {
+    if (this.user.role === 'admin') {
+      this.router.navigate(['/admin-profile']);
+    }
+    else {
+      this.router.navigate(['/user-dashboard/student/profile']);
+    }
   }
 }
