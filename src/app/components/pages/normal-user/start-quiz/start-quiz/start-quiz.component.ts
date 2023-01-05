@@ -43,10 +43,6 @@ export class StartQuizComponent implements OnInit {
       (questions: any) => {
         this.questions = questions;
 
-        this.questions.forEach((question: any) => {
-          question['givenAnswer'] = '';
-        });
-
         this.quizTitle = this.questions[0].quiz.title;
 
         console.log(this.questions);
@@ -104,30 +100,28 @@ export class StartQuizComponent implements OnInit {
   }
 
   calculateMarks() {
-    this.questions.forEach((question: any) => {
-      if (question.givenAnswer.trim() != '') {
-        this.attempted++;
-      }
-      if (question.givenAnswer == question.answer) {
-        this.correctAnswers++;
-        this.marksGot += (this.questions[0].quiz.maxMarks / this.questions[0].quiz.numberOfQuestions);
-      }
-      if (question.givenAnswer != question.answer) {
-        this.wrongAnswers++;
-      }
-    });
+    //Call Server to calculate marks
+    this.questionService.submitQuiz(this.questions).subscribe(
+      (response: any) => {
+        this.marksGot = response.marksGot;
+        this.correctAnswers = response.correctAnswers;
+        this.wrongAnswers = response.wrongAnswers;
+        this.attempted = response.attempted;
 
-    console.log("marksGot: " + this.marksGot + ", correctAnswers: " + this.correctAnswers + ", wrongAnswers: " + this.wrongAnswers + ", attempted: " + this.attempted);
-
-    Swal.fire({
-      title: 'Quiz Submitted',
-      text: 'Quiz Submitted Successfully',
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.isSubmitted = true;
-      }
-    });
+        Swal.fire({
+          title: 'Quiz Submitted',
+          text: 'Quiz Submitted Successfully',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.isSubmitted = true;
+          }
+        });
+      },
+      (error: any) => {
+        Swal.fire('Error', 'Error while submitting Quiz', 'error');
+        console.log(error);
+      });
   }
 }

@@ -41,4 +41,8 @@ export class QuestionService {
     return this.httpClient.delete(`${baseUrl}/question/${questionId}`);
   }
 
+  //Submit Quiz and Get Result
+  submitQuiz(questions: any) {
+    return this.httpClient.post(`${baseUrl}/question/evaluate`, questions);
+  }
 }
