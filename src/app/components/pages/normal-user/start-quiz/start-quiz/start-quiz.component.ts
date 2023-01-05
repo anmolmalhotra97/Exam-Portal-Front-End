@@ -124,4 +124,8 @@ export class StartQuizComponent implements OnInit {
         console.log(error);
       });
   }
+
+  public printPage() {
+    window.print();
+  }
 }
