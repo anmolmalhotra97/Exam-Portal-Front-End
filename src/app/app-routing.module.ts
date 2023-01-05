@@ -41,7 +41,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
-    // canActivate: [AdminGuard],
+    canActivate: [AdminGuard],
     // Child is used to load a component within a component
     children: [
       //Welcome Component is loaded within AdminDashboardComponent by "default"
@@ -104,7 +104,7 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    // canActivate: [NormalUserGuard]
+    canActivate: [NormalUserGuard],
     children: [
       //Load Quiz Component is loaded within UserDashboardComponent
       {

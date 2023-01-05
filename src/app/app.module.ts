@@ -43,6 +43,7 @@ import { QuizInstructionsComponent } from './components/pages/normal-user/quiz-i
 import { StartQuizComponent } from './components/pages/normal-user/start-quiz/start-quiz/start-quiz.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -89,7 +90,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSelectModule,
     CKEditorModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [authenticationInterceptorProviders],
   bootstrap: [AppComponent]
